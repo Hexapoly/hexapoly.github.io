@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>don't leave so soon</title>
-    <style>
+<html lang="en">
+    <head>
+        <title>IT'S CHRISTMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASSSSSSSSSSSSSS FUCK YEAHHHHHHHHHHHHHHHHHHHAHAHAHAH</title>
+        <style>
           /*
     Source - https://stackoverflow.com/a/65406021
     Posted by Ahmed Ali
     Retrieved 2026-06-17, License - CC BY-SA 4.0
     */
     
-    video {
+    img {
         position: fixed;
         text-align: center;
         top: 50%;
@@ -17,13 +17,40 @@
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
     }
-    </style>
-  </head>
-  <body>
-    <video width="512" height="512" autoplay loop>
-      <source src="dontleavesosoon.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-    <!-- <a href="catdice.html" class="button">catdace</a>-->
-  </body>
+        </style>
+
+    </head>
+    <body>
+        <img id="snaky" src="snakysilhouette.gif" alt="look at him go aww" data-alt="snaky.gif" style="cursor: pointer;" />
+        <audio id="firemusics" loop>
+            <source src="alliwantforchristmas.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="fireintros">
+            <source src="aiwfcintro.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+
+        <script>
+            var audio = document.getElementById("firemusics");
+            var audioIntro = document.getElementById("fireintros");
+            var snaky = document.getElementById("snaky");
+
+           function autoployle() {
+                console.log("LET'S GET SNAKY i feel so festivee");
+                audioIntro.play();
+                audioIntro.addEventListener("ended", function() {
+                    audio.play();
+                    const tempSrc = snaky.src;
+                    snaky.src = snaky.getAttribute("data-alt");
+                    snaky.setAttribute("data-alt", tempSrc);
+                    document.removeEventListener("click", autoployle);
+                    document.removeEventListener("touchstart", autoployle);
+                });
+            };
+
+            document.addEventListener("click", autoployle);
+            document.addEventListener("touchstart", autoployle);
+        </script>
+    </body>
 </html>
